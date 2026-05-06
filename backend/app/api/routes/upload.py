@@ -1,7 +1,10 @@
+import uuid
+
 from fastapi import APIRouter, UploadFile, File, HTTPException
 
 from app.utils.file_loader import extract_text_from_file
 from app.utils.text_splitter import split_text_into_chunks
+from app.services.vector_store import store_chunks
 
 router = APIRouter()
 
@@ -24,17 +27,35 @@ async def upload_document(file: UploadFile = File(...)):
         text = await extract_text_from_file(file)
 
         if not text.strip():
-            raise HTTPException(status_code=400, detail="No text found in document.")
+            raise HTTPException(
+                status_code=400,
+                detail="No text found in document.",
+            )
 
         chunks = split_text_into_chunks(text)
 
+        doc_id = str(uuid.uuid4())
+
+        store_chunks(
+            chunks=chunks,
+            doc_id=doc_id,
+            filename=file.filename,
+        )
+
         return {
+            "message": "Document uploaded, processed, and stored successfully.",
+            "doc_id": doc_id,
             "filename": file.filename,
             "content_type": file.content_type,
             "total_characters": len(text),
             "total_chunks": len(chunks),
-            "chunks": chunks[:5],  # preview only
         }
 
+    except HTTPException:
+        raise
+
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(
+            status_code=500,
+            detail=f"Upload failed: {str(e)}",
+        )

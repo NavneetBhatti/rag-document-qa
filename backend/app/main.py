@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from app.api.routes import upload
+from app.api.routes import upload, query
 
 app = FastAPI(title="RAG Document QA API")
 
@@ -14,6 +18,7 @@ app.add_middleware(
 )
 
 app.include_router(upload.router, prefix="/api", tags=["Upload"])
+app.include_router(query.router, prefix="/api", tags=["Query"])
 
 
 @app.get("/")
