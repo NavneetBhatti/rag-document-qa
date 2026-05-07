@@ -16,7 +16,7 @@ function Home() {
             <span>paperchat</span>
           </div>
 
-          <span className="version">V 0.1 — BETA</span>
+          {/* <span className="version">V 0.1 — BETA</span> */}
         </nav>
 
         <section className="hero-grid">
@@ -53,8 +53,9 @@ function Home() {
 
           {!answer && sources.length === 0 && (
             <div className="empty-state">
-              <div>✣</div>
-              <p>Your answer will appear here, with citations below.</p>
+              <div>
+                 <div>✣</div> 
+                 <p>Your answer will appear here, with citations below.</p></div>
             </div>
           )}
 

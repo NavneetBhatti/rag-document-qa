@@ -47,7 +47,7 @@ function ChatWindow({ docId, setParentAnswer, setParentSources }) {
       />
 
       <div className="ask-footer">
-        <small>⌘ + ↵ TO ASK</small>
+        {/* <small>⌘ + ↵ TO ASK</small> */}
 
         <button onClick={handleAsk} disabled={!docId || loading}>
           {loading ? "Thinking..." : "Ask"}
