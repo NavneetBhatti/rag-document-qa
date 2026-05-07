@@ -5,8 +5,9 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 
 def generate_answer(question: str, context: str) -> str:
-    # model = genai.GenerativeModel("gemini-2.5-flash")
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    # model = genai.GenerativeModel("gemini-2.5-flash")..not working in free version
+    # model = genai.GenerativeModel("gemini-2.0-flash")
+    model = genai.GenerativeModel("gemini-2.5-flash-lite")
     prompt = f"""
 You are an AI document assistant.
 
