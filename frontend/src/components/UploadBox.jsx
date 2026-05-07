@@ -28,16 +28,30 @@ function UploadBox({ onUploadSuccess }) {
   };
 
   return (
-    <div className="card">
-      <h2>Upload Document</h2>
+    <div className="upload-block">
+      <div className="section-title">
+        <span>01</span>
+        <h2>Upload a document</h2>
+      </div>
 
-      <input
-        type="file"
-        accept=".pdf,.txt,.docx"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
+      <label className="upload-zone">
+        <input
+          type="file"
+          accept=".pdf,.txt,.docx"
+          onChange={(e) => setFile(e.target.files[0])}
+        />
 
-      <button onClick={handleUpload} disabled={loading}>
+        <div className="upload-icon">↥</div>
+
+        <div className="upload-text">
+          <strong>{file ? file.name : "Choose a file or drop here"}</strong>
+          <small>PDF · TXT · DOCX</small>
+        </div>
+
+        <div className="upload-arrow">→</div>
+      </label>
+
+      <button className="upload-btn" onClick={handleUpload} disabled={loading}>
         {loading ? "Uploading..." : "Upload"}
       </button>
 
