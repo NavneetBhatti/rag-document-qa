@@ -13,7 +13,7 @@ function Home() {
         <nav className="navbar">
           <div className="brand">
             <div className="brand-icon">▣</div>
-            <span>paperchat</span>
+            <span>GroundedAI</span>
           </div>
 
           {/* <span className="version">V 0.1 — BETA</span> */}
@@ -21,14 +21,15 @@ function Home() {
 
         <section className="hero-grid">
           <div className="hero-content">
-            <div className="pill">✣ GROUNDED ANSWERS · CITED SOURCES</div>
+            <div className="pill">✣ LLM-Powered Retrieval-Augmented Generation</div>
 
             <h1>
-              Talk to your <span>documents</span>, not around them.
+              Grounded AI  <span>answers</span> from your documents
             </h1>
 
             <p>
-              Drop in a PDF and ask anything. Every answer comes back with the
+               RAG powered by semantic search, vector embeddings, and LLM reasoning.
+               Drop in a PDF and ask anything. Every answer comes back with the
               exact passages it leaned on — so you can trust, verify, and dig
               deeper.
             </p>
@@ -79,6 +80,7 @@ function Home() {
           )}
         </section>
       </div>
+      <footer>Built with React · FastAPI · Gemini · Pinecone</footer>
     </div>
   );
 }

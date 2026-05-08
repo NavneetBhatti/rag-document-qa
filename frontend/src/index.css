@@ -147,7 +147,7 @@ body {
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: clamp(82px, 4vw, 100px);
+  font-size: clamp(70px, 2vw, 70px);
 
   line-height: 0.9;
 
@@ -635,4 +635,15 @@ textarea:focus {
   font-style: italic;
   /* font-weight: 500; */
   color: grey;
+}
+
+footer {
+  margin-top: 42px;
+  text-align: center;
+  color: rgba(70, 50, 40, 0.55);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 24px;
 }
